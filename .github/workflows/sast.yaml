@@ -1,0 +1,23 @@
+name: "AccuKnox SAST Scan 2"
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  sast-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run SAST Scan with AccuKnox
+        uses: accuknox/sast-scan-opengrep-action@v1.0.1
+        with:
+          Accuknox_endpoint: "cspm.demo.accuknox.com"
+          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
+          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }} 
+          soft_fail: true
