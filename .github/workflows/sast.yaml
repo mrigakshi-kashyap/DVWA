@@ -1,4 +1,4 @@
-name: Accuknox SAST Scan
+name: Accuknox SAST Scan Test
 
 on:
   push:
