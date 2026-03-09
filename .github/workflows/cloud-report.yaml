@@ -17,7 +17,7 @@ jobs:
         uses: ./.github/actions
         with:
           cspm_access_token: ${{ secrets.CSPM_ACCESS_TOKEN }}
-          account_id: "075565429331"
+          account_id: "408357780127"
           toolkit_base_url: "https://toolkit.demo.accuknox.com"
           report_name: "CSPM Report"
           ticket_summary: "true"
