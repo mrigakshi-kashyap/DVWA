@@ -1,4 +1,4 @@
-name: Accuknox xBOM Workflow
+name: Accuknox xBOM Workflow Test
 
 on:
   push:
