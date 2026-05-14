@@ -1,4 +1,4 @@
-name: Accuknox SAST
+name: Accuknox xBOM
 
 on:
   push:
@@ -15,10 +15,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: "Run Accuknox SAST: Opengrep"
-        uses: accuknox/sast-scan-opengrep-action@latest
+      - name: "AccuKnox xBOM Scan"
+        uses: accuknox/xbom-action@2.0
         with:
-          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
-          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
-          soft_fail: "true"
+          bom-type:           sbom
+          path:               "."
+          token:              ${{ secrets.ACCUKNOX_TOKEN }}
+          endpoint:           ${{ secrets.ACCUKNOX_ENDPOINT }}
+          label:              ${{ secrets.ACCUKNOX_LABEL }}
+          project-name:       xbom-test-project
+          project-classifier: application
+        
